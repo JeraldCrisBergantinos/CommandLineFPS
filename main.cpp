@@ -6,6 +6,13 @@ using namespace std;
 const int nScreenWidth = 120;
 const int nScreenHeight = 40;
 
+float fPlayerX = 0.0f;
+float fPlayerY = 0.0f;
+float fPlayerA = 0.0f;
+
+const int nMapHeight = 16;
+const int nMapWidth = 16;
+
 int main()
 {
     // Create screen buffer
@@ -14,7 +21,11 @@ int main()
     SetConsoleActiveScreenBuffer(hConsole);
     DWORD dwBytesWritten = 0;
 
-    screen[nScreenWidth * nScreenHeight - 1] = '\0';
-    WriteConsoleOutputCharacter(hConsole, screen, nScreenWidth * nScreenHeight, {0, 0}, &dwBytesWritten);
+    // Game loop
+    while (true) {
+        screen[nScreenWidth * nScreenHeight - 1] = '\0';
+        WriteConsoleOutputCharacter(hConsole, screen, nScreenWidth * nScreenHeight, {0, 0}, &dwBytesWritten);
+    }
+
     return 0;
 }
